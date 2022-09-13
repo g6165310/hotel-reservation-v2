@@ -1,0 +1,59 @@
+// *************************************
+//
+//   Helpers
+//   -> Functions、mixin、extend、Animations
+//
+// *************************************
+
+// -------------------------------------
+//   Functions
+// -------------------------------------
+
+// -------------------------------------
+//   Mixins
+// -------------------------------------
+
+// ----- respond-to ----- //
+// -> RWD 斷點
+// $breakpoint - the breakpoint size
+@mixin responsive($breakpoint) {
+  @media screen and (min-width:map-get($b-breakpoints, $breakpoint)){
+      @content;
+  }
+}
+
+// ----- text-hide ----- //
+// -> 圖片取代文字用
+@mixin text-hide {
+  overflow: hidden;
+  white-space: nowrap;
+  text-indent: 101%;
+}
+// ----- logo ----- //
+// -> 用圖片取代H1 LOGO文字
+@mixin logo($w,$h) {
+  a{
+      display: block;
+      //background: url($bg-url) no-repeat;
+      width: $w;
+      height: $h;
+      @include text-hide
+  }
+  
+}
+
+// ----- font ----- //
+// -> 文字樣式
+@mixin font(
+  $size,
+  $color: #000,
+  $spacing:1,
+  $line-height:1 ,
+  $font-weight: 400
+) {
+  font-size: $size + px;
+  color: $color;
+  letter-spacing: $spacing + px;
+  line-height: $line-height;
+  font-weight: $font-weight;
+}

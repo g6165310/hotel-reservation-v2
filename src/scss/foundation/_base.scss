@@ -1,0 +1,43 @@
+// *************************************
+//
+//   Base
+//   -> Tag-level settings
+//
+// *************************************
+
+*,*::before, *::after{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+}
+html{
+  font-family: $b-fontFamily;
+}
+html,body,#app{
+  height: 100%;
+  width: 100%;
+}
+// -------------------------------------
+//   Block Content
+// -------------------------------------
+ul{
+  list-style: none;
+}
+h1{
+  margin: 0;
+  padding: 0;
+}
+
+// -------------------------------------
+//   Inline Content
+// -------------------------------------
+img{
+  max-width: 100%;
+  height: auto;
+}
+a{
+  text-decoration: none;
+  cursor:pointer;
+}
