@@ -36,4 +36,6 @@ $b-breakpoints:(
 $b-fontFamily:'Noto Sans TC' ,sans-serif;
 
 // ----- Sizing ----- //
-$b-space:12px
+$b-space:12px;
+$b-space-m: $b-space*2;
+$b-space-l: $b-space*3;

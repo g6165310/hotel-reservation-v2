@@ -1,8 +1,8 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 import Layout from '../views/LayoutView.vue';
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
@@ -12,6 +12,12 @@ const router = createRouter({
           path: '/',
           name: 'home',
           component: () => import('../views/HomeView.vue'),
+        },
+        {
+          path: '/room/:id',
+          name: 'room',
+          component: () => import('../views/RoomView.vue'),
+
         },
         {
           path: '/:pathMatch(.*)*', name: '404', component: () => import('../views/NotFound.vue'),

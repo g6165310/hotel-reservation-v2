@@ -1,51 +1,67 @@
+<script setup>
+import { storeToRefs } from 'pinia';
+import HomeBackground from '../components/HomeBackground.vue';
+import useWindow from '../stores/window';
+import useLoading from '../stores/loading';
+import Loading from '../components/LoadingPage.vue';
+
+const { isLoading } = storeToRefs(useLoading());
+const { isMobile } = storeToRefs(useWindow());
+</script>
+
 <template>
-  <header>
-    <h1 class="logo-w">
-      <router-link to="/">
-        White Space
-      </router-link>
-    </h1>
-  </header>
-  <main>
-    <router-view />
-  </main>
-  <footer>
-    <p>&copy; Copyright 2022 g6165310@gmail.com</p>
-  </footer>
+  <div class="wrapper">
+    <HomeBackground />
+    <header>
+      <h1 class="logo" :class="isMobile ? 'logo-black' : 'logo-white'">
+        <router-link to="/">
+          White Space
+        </router-link>
+      </h1>
+    </header>
+    <main>
+      <router-view />
+    </main>
+    <Transition>
+      <Loading v-if="isLoading" />
+    </Transition>
+  </div>
 </template>
 
 <style lang="scss" scoped>
-  header{
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%,-10%);
-    z-index: 999;
+  .wrapper{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     @include responsive(md){
-      top: 47px;
-      left: 54px;
-      transform: none;
+      display: block;
     }
-    @media screen and (orientation: landscape){
-      top: 10%;
+  }
+  header{
+    margin-bottom: $b-space-m;
+    @include responsive(md){
+      padding-left: 54px;
+      padding-top: 47px;
     }
   }
   main{
-    width: 100%;
-    height: 100%;
-    position: relative;
   }
   .logo{
 
   }
-  .logo-w {
+  .logo-white {
     width: 162px;
     height: 162px;
     @include logo(100%,100%);
     background:url("../assets/logo_white.svg") no-repeat;
   }
-  .logo-b{
+  .logo-black{
     width: 164px;
     height: 53px;
+    @include logo(100%,100%);
+    background:url("../assets/logo_block.svg") no-repeat;
   }
 </style>

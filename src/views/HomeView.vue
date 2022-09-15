@@ -1,9 +1,8 @@
 <script setup>
-import HomeBackground from '../components/HomeBackground.vue';
 import ContactInfo from '../components/ContactInfo.vue';
-
+import NavBar from '../components/NavBar.vue';
 </script>
 <template>
-  <HomeBackground />
   <ContactInfo />
+  <NavBar />
 </template>

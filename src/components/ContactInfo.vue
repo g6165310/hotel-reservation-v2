@@ -25,24 +25,12 @@
 </template>
 <style lang="scss" scoped>
 .contactInfo{
-  padding: $b-space;
-  width: 300px;
-  position: absolute;
-  bottom: 10%;
-  left: 50%;
-  transform: translate(-50%,-20%);
   @include font(14,#fff);
-  @media screen and (orientation: landscape){
-      bottom: 0%;
-      transform: translate(-50%,0%);;
-  }
   @include responsive(md){
+    position: absolute;
     bottom: 75px;
-    left: auto;
     right: 30px;
-    transform: none;
   }
-
   &-social{
     display: flex;
     justify-content: center;
@@ -63,7 +51,7 @@
       position: absolute;
       width: 50%;
       bottom: -12px;
-      border: 1px solid #fff;
+      border-bottom: 1px solid #fff;
       @include responsive(md){
         display: none;
       }
